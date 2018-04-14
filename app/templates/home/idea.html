@@ -1,0 +1,52 @@
+{% extends "home/idea_base.html" %}
+{% import "ui/home_page.html" as pg %}
+{% block content %}
+
+    <!--content start-->
+    <div id="content">
+        <!--left-->
+        <div class="left" id="c_left">
+            <!--内容-->
+            <!--content start-->
+            <div id="say">
+                <div class="col-md-12 timelinebox">
+                    <div class="timeline animated">
+                        {% for v in page_data.items %}
+                            <div class="timeline-row">
+                                <div class="timeline-time">
+                                    {{ v.addtime }}
+                                </div>
+                                <div class="timeline-icon">
+
+                                    <div class="bg-info"><i class="fa fa-camera"></i></div>
+
+                                </div>
+                                <div class="panel timeline-content">
+                                    <div class="panel-body">
+
+                                        {% if v.logo %}
+                                            <a href="{{ v.logo }}"
+                                               target="_blank">
+                                                <img class="img-responsive" style="width: 785px "
+                                                     src="{{ v.logo }}"/>
+                                            </a>
+                                        {% endif %}
+                                        <p>{{ v.content }}</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right" id="c_right">
+        </div>
+        <!--right end-->
+        <div class="clear"></div>
+    </div>
+    <div class="col-md-12 text-center">
+                    {{ pg.page(page_data,"home.idea") }}
+                </div>
+{% endblock %}

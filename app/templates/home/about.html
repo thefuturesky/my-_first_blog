@@ -1,0 +1,79 @@
+{% extends "home/base.html" %}
+{% block content %}
+    <!--left-->
+    <div class="col-md-12 article" style="font-family: 'Adobe 楷体 Std R';font-size: larger">
+        <div class="col-md-3 text-center">
+            <img src="{{ url_for('static',filename="images/my5.jpg") }}" alt="" class="img-circle img-responsive"
+                 style="margin: auto">
+            <h3>一直在路上</h3>
+            <p>浪迹天涯的过客</p>
+        </div>
+        <div class="col-md-9 personal-info">
+            <h2>基本信息：</h2>
+            <hr>
+            <ul>
+                <li><p>·&nbsp;&nbsp;姓名：戴亮亮</p></li>
+                <li><p>·&nbsp;&nbsp;生日：1993年4月</p></li>
+                <li><p>·&nbsp;&nbsp;学校：中国地质大学(北京)-地球科学与资源学院-研究生在读</p></li>
+                <li><p>·&nbsp;&nbsp;爱好: 健身,编程</p></li>
+            </ul>
+            <h2>专业技能：</h2>
+            <hr>
+            <ul>
+                <li><p>·&nbsp;&nbsp;Python后端</p></li>
+                <li><p>·&nbsp;&nbsp;Flask熟练工</p></li>
+                <li><p>·&nbsp;&nbsp;Djando入门</p></li>
+                <li><p>·&nbsp;&nbsp;简单的前端开发</p></li>
+                <li><p>·&nbsp;&nbsp;半吊子矿工</p></li>
+            </ul>
+            <h2>项目经历：</h2>
+            <hr>
+            <ul>
+                <li><p>·&nbsp;&nbsp;<a href="https://github.com/thefuturesky/my_movieweb_project" target="_blank">基于Python-Flask-mysql的微电影管理网站</a>
+                </p></li>
+                <li><p>·&nbsp;&nbsp;<a href="https://github.com/thefuturesky/my_second_demo" target="_blank">Flask小型仿知乎问答平台</a></p>
+                </li>
+                <li><p>·&nbsp;&nbsp;<a href="https://github.com/thefuturesky/todo_app" target="_blank">Flask&nbsp;&nbsp;Todo_list网站备忘录</a>
+                </p></li>
+                <li><p>·&nbsp;&nbsp;<a href="" target="_blank">基于Python-Flask-mysql的第一个轻量级博客系统</a></p></li>
+                <li><p>·&nbsp;&nbsp;到目前为止做过的项目还比较，企业级开发基本还没接触过，</p></li>
+                <li><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这也是以后努力的方向！</p></li>
+            </ul>
+            <h2>其他工作学习经历：</h2>
+            <hr>
+            <ul>
+                <li><p>·&nbsp;&nbsp;2011-Study at China university of geosciences(Beijing).</p></li>
+                <li><p>·&nbsp;&nbsp;2015-Graduated from China university of</p></li>
+                <li><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;geosciences(Beijing).</p></li>
+                <li><p>·&nbsp;&nbsp;2015-2017-Working in Tibet..</p></li>
+                <li><p>·&nbsp;&nbsp;2017-Master degree at China University of </p></li>
+                <li><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Geosciences(Beijing)</p></li>
+                <li><p>·&nbsp;&nbsp;2017.11-Start learning programming</p></li>
+                <li><p>·&nbsp;&nbsp;2018-Changed jobs.</p></li>
+            </ul>
+            <h2>生活相关：</h2>
+            <hr>
+            <ul>
+                <li><p>·&nbsp;&nbsp;入门级码农，技术宅</p></li>
+                <li><p>·&nbsp;&nbsp;业余级健身爱好者</p></li>
+                <li><p>·&nbsp;&nbsp;浏览型足球关注者</p></li>
+                <li><p>·&nbsp;&nbsp;optimistic</p></li>
+                <li><p>·&nbsp;&nbsp;励志成为一名热爱生活的人</p></li>
+                <li><p>·&nbsp;&nbsp;写过稿子，做过演讲，采过样品。</p></li>
+                <li><p>·&nbsp;&nbsp;体验过都市的繁华，也经历过荒芜的雪域！</p></li>
+                <li><p>·&nbsp;&nbsp;五千米的海拔生活过，七千米的海拔上去过！</p></li>
+            </ul>
+            <h2>写在最后：</h2>
+            <hr>
+            <h4>分享一句座右铭：</h4>
+            <blockquote class="text-danger">
+                <p>生命不止，奋斗不息，面对梦想，有人执着，有人放弃。面对现实，有人微笑，有人流泪。自己选择的路， 跪着也要走完！</p>
+            </blockquote>
+            <hr>
+            <img src="{{ url_for('static',filename="images/my4.jpg") }}" alt="" class="img-responsive img-thumbnail">
+            <hr>
+            <h4 class="text-primary">追梦路漫漫，感谢正在看着这些文字的你一路相伴，我们一直在路上……</h4>
+        </div>
+    </div>
+    <!--end left -->
+{% endblock %}

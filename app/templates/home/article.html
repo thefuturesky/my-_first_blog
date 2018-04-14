@@ -1,0 +1,105 @@
+{% extends "home/base.html" %}
+{% import "ui/comment_page.html" as pg %}
+{% block content %}
+    <div class="col-md-12 article">
+        <div class="col-md-12">
+            <h2><a href="#">{{ article.title|safe }}</a></h2>
+            <p>
+                <small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>{{ article.addtime }}
+                </small>
+            </p>
+
+            <blockquote>
+                <p class="text-danger">原创文章，转载请注明出处和作者。</p>
+            </blockquote>
+        </div>
+        <div class="col-md-12" style="font-family: 'Adobe 楷体 Std R';font-size: 20px">
+            {{ article.content|safe }}
+            {#            <p>#}
+            {#                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86"#}
+            {#                        src="//music.163.com/outchain/player?type=2&id=436514312&auto=1&height=66"></iframe>#}
+            {#            </p>#}
+            <hr>
+        </div>
+
+        <div class="col-md-6">
+            <span class="label label-default"><span class="text-left"><span class="glyphicon glyphicon-tags"
+                                                                            aria-hidden="true"></span>&emsp;{{ article.tag.name }}</span></span>
+        </div>
+        <div class="col-md-6 text-right">
+            <a role="button" class="btn btn-info  btn-xs" href="{{ url_for('home.index',page=1) }}"><span
+                    class="glyphicon glyphicon-console"
+                    aria-hidden="true"></span>&emsp;返回首页</a>
+        </div>
+    </div>
+
+    <div class="col-md-12" style="margin-top:6px;">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span>&nbsp;文章评论</h3>
+            </div>
+            {% for msg in get_flashed_messages(category_filter=['ok']) %}
+                <div>
+                    <font color="green">{{ msg }}</font>
+                </div>
+            {% endfor %}
+            <div class="panel-body">
+                <ol class="breadcrumb" style="margin-top:6px;">
+                    <li>全部评论({{ article.commentnum }})</li>
+                </ol>
+                <form role="form" method="post" style="margin-bottom:6px;">
+                    <div class="form-group">
+                        <div>
+                            <label for="input_content">{{ form.name.label }}</label>
+                            {{ form.name }}
+                            {% for err in form.name.errors %}
+                                <div class="col-md-12">
+                                    <span style="color: red">{{ err }}</span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <br>
+                        <div>
+                            <label for="input_content">{{ form.content.label }}</label>
+                            {{ form.content }}
+                            {% for err in form.content.errors %}
+                                <div class="col-md-12">
+                                    <span style="color: red">{{ err }}</span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {{ form.csrf_token }}
+                    {{ form.submit }}
+                </form>
+                <div class="col-md-12">
+                    <font style="color: green;" id="show_col_msg"></font>
+                </div>
+                <div class="clearfix"></div>
+                <ul class="commentList">
+                    {% for v in page_data.items %}
+                        <li class="item cl">
+                            <div class="comment-main">
+                                <header class="comment-header">
+                                    <div class="comment-meta">
+                                        <font style="color: #00a0e9"><strong>{{ v.name }}</strong></font>
+                                        评论于
+                                        <time title="{{ v.addtime }}"
+                                              datetime="2016-12-07 09:12:51">{{ v.addtime }}
+                                        </time>
+                                    </div>
+                                </header>
+                                <div class="comment-body"style="font-size: 30px;font-family: 'Adobe 楷体 Std R'">
+                                    <p>{{ v.content|safe }}</p>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="col-md-12 text-center">
+                    {{ pg.page(page_data,"home.article",id=article.id) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "home/base.html" %}
+{% block content %}
+    <div class="col-md-12" style="margin-top:6px;">
+        <div class="panel panel-danger">
+            {% for msg in get_flashed_messages(category_filter=['ok']) %}
+                <div>
+                    <font color="green">{{ msg }}</font>
+                </div>
+            {% endfor %}
+            <div class="panel-body">
+                <h2 style="font-family: 'Adobe 楷体 Std R';color: blue">来都来了，留个脚印呗！！</h2>
+                <hr>
+                <form role="form" method="post" style="margin-bottom:6px;">
+                    <div class="form-group">
+                        <div>
+                            <label for="input_content">{{ form.name.label }}</label>
+                            {{ form.name }}
+                            {% for err in form.name.errors %}
+                                <div class="col-md-12">
+                                    <span style="color: red">{{ err }}</span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <br>
+                        <div>
+                            <label for="input_content">{{ form.content.label }}</label>
+                            {{ form.content }}
+                            {% for err in form.content.errors %}
+                                <div class="col-md-12">
+                                    <span style="color: red">{{ err }}</span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {{ form.csrf_token }}
+                    {{ form.submit }}
+                </form>
+                <br>
+                {% for v in messages %}
+                    <div style="margin-left:40px;margin-top: 50px; background-color:white;width:25%;font-family: 'Adobe 楷体 Std R';font-size: large;float: left;border: 2px solid grey;">
+                        <p style="padding-left: 10px;padding-top: 10px">昵称：{{ v.name }}</p>
+                        <hr style="margin: 5px;height: 2px">
+                        <p style="padding-left: 10px;">{{ v.content }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

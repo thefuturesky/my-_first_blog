@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>一直在路上</title>
+    <meta name="keywords" content="个人博客"/>
+    <meta name="description" content=""/>
+    <link rel="shortcut icon" href="{{ url_for('static',filename='images/favourite.ico') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename="css/index.css") }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename="css/style.css") }}"/>
+    <script type="text/javascript" src="{{ url_for('static',filename="js/jquery1.42.min.js") }}"></script>
+    <script type="text/javascript"
+            src="{{ url_for('static',filename="js/jquery.SuperSlide.2.1.1.js") }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename="css/bootstrap.min.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename="css/iconfont/iconfont.css") }}">
+    <link rel=" stylesheet" type="text/css" href="{{ url_for('static',filename="css/main.css") }}">
+    {#    说说时间轴#}
+    <script type="text/javascript" src="http://oc2ae6w67.bkt.clouddn.com/static/js/timeline.js"></script>
+    <link rel="stylesheet" href="http://oc2ae6w67.bkt.clouddn.com/static/css/timeline.css">
+    <link rel="stylesheet" href="http://oc2ae6w67.bkt.clouddn.com/static/css/font-awesome.min.css">
+    {% block css %}{% endblock %}
+    <!--[if lt IE 9]>
+<script src="{{ url_for('static',filename="js/html5.js") }}"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!--nav-->
+<div id="nav">
+    <ul>
+        <li><a href="{{ url_for("home.index",page=1) }}">首页</a></li>
+        <li><a href="{{ url_for("home.about") }}">关于我</a></li>
+        <li><a href="{{ url_for("home.idea",page=1) }}">我的说说</a></li>
+        <li><a href="{{ url_for("home.message") }}">留言板</a></li>
+        <div class="clear"></div>
+    </ul>
+</div>
+<!--nav end-->
+<div style="width: auto;height: 300px;background-color: #00a0e9;" id="header">
+    <div style="padding-left: 430px;padding-top: 40px;">
+        <p style="font-size:60px;color: white;font-family: 'Adobe 楷体 Std R'">一直在路上</p>
+        <br>
+        <p style="padding-left:40px;"><a href="{{ url_for("home.about") }}"><font
+                style="color: white;font-family: 'Adobe 楷体 Std R';font-size: 28px">了解他--></font></a></p>
+    </div>
+</div>
+<!--content start-->
+<div id="content">
+    <!--left-->
+    <div class="left" id="c_left">
+        <!--内容-->
+        {% block content %}{% endblock %}
+        <!--内容-->
+    </div>
+
+    <!--left end-->
+    <!--right-->
+    <div class="right" id="c_right">
+        <div class="s_about">
+            <h2 style="font-size: 35px;font-family: 'Adobe 楷体 Std R';padding-left: 40px">关于博主</h2>
+            <img src="{{ url_for('static',filename="images/my.jpg") }}" width="230" height="230" alt="博主"/>
+            <p><strong>博主：戴亮亮</strong></p>
+            <p><strong>职业：学生</strong></p>
+            <p><strong>简介：如今我走到人生十字路口，我知道哪条路是对的，毫无例外，我就知道，但我从不走，为什么？因为他妈的太苦了！</strong></p>
+        </div>
+        <br>
+        <br>
+        <!--我的说说-->
+        <div class="col-md-12 article">
+            <div class="col-md-12 text-center">
+                <h2 class="category-header">我的说说</h2>
+                <hr>
+            </div>
+            <div class="col-md-12">
+
+                <p>岁月不饶人，我亦未曾饶过岁月。</p>
+
+            </div>
+            <div class="col-md-12">
+                <p class="text-right">
+                    <small>2018-04-10&nbsp;16:33:27</small>
+                </p>
+            </div>
+            <div class="col-md-12 text-right">
+                <hr>
+                <a role="button" class="btn btn-warning" href="{{ url_for('home.idea',page=1) }}">更多</a>
+            </div>
+        </div>
+        <!--end-->
+        <div class="col-md-12 article">
+            <div class="col-md-12 text-center">
+                <h2 class="category-header">友链</h2>
+                <hr>
+            </div>
+            <div class="col-md-12">
+                <ul class="list-unstyled">
+
+                    <li>
+                        <a href="http://www.cugb.edu.cn/index.action" target="_blank" title="中国地质大学（北京）">
+                            <p>
+                            <span class="text-left">
+                                >&nbsp;中国地质大学（北京）
+                            </span>
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://wenqingfu.me/" target="_blank" title="文庆福的个人博客">
+                            <p>
+                            <span class="text-left">
+                                >&nbsp;文庆福的个人博客
+                            </span>
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="http://hezhichao.cn/" target="_blank" title="贺智超的个人博客">
+                            <p>
+                            <span class="text-left">
+                                >&nbsp;贺智超的个人博客
+                            </span>
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="http://www.hhtyz.com/" target="_blank" title="怀铁一中">
+                            <p>
+                            <span class="text-left">
+                                >&nbsp;怀铁一中
+                            </span>
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--right end-->
+    <div class="clear"></div>
+</div>
+<!--content end-->
+<script type="text/javascript">jQuery(".lanmubox").slide({easing: "easeOutBounce", delayTime: 400});</script>
+<script type="text/javascript" src="{{ url_for('static',filename="js/nav.js") }}"></script>
+{% block js %}{% endblock %}
+</body>
+<footer>
+    <div class="jumbotron front-footer text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-xs-12">
+                    <h3>It is never too late to learn..</h3>
+                    <p>Built by the DLL</p>
+                    <p>Power BY <strong>Flask</strong></p>
+                    <p>Created in February 2018</p>
+                </div>
+                <div class="col-md-5 col-xs-12">
+                    <h2>Contact Me</h2>
+                    <ul class="list-unstyled contact-info">
+                        <li><i class="iconfont">&#xe677;</i>&emsp;<a href="https://github.com/thefuturesky/" target="_blank">DLL-GitHub</a>
+                        </li>
+                        <li><i class="iconfont">&#xe6af;</i>&emsp;416396230@qq.com</li>
+                        <li><i class="iconfont">&#xe69a;</i>&emsp;<a href="https://www.zhihu.com/people/dai-liang-liang-47" target="_blank">DLL-Zhihu</a>
+                        </li>
+                        <li><i class="iconfont">&#xe892;</i>&emsp;<a href="https://weibo.com/u/2246652354" target="_blank">DLL-Weibo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
